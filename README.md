@@ -304,18 +304,25 @@ chmod +x setup.sh
 ```
 
 `setup.sh` will:
-1. Install backend Python dependencies (non-fatal on failure - installs the
-   hook regardless).
+
+1. Install backend Python dependencies (non-fatal on failure - installs the hook regardless).
 2. Install `hooks/post-commit` into `.git/hooks/post-commit`.
-3. Start the FastAPI webhook listener in the background on port `8000`
-   (this also starts the WebSocket server on port `8765`).
-4. Start the Expo mobile dev server in the background on a fixed port
-   (`5678`), logging its QR code to `logs/devmesh_expo.log`.
+3. Start the FastAPI webhook listener in the background on port `8000` (this also starts the WebSocket server on port `8765`).
+4. Start the Expo mobile development server in the background on a fixed port (`5678`), logging its QR code to `logs/devmesh_expo.log`.
 
-Safe to re-run anytime - it won't double-start the webhook listener.
+Safe to re-run anytime—it won't double-start the webhook listener.
 
-> If you are not inside a git repository yet, run `git init` first - the
-> script will display a warning and skip the hook install otherwise.
+> **Note:** If the Expo QR code does not appear after running `setup.sh`, start the Expo development server manually:
+>
+> ```bash
+> cd mobile
+> npx expo start
+> ```
+>
+> Once the Expo CLI starts, the QR code should be displayed. If your physical device does not automatically appear as connected, use the **Down Arrow (↓)** key in the Expo CLI to select your device and approve the connection. After approval, you can scan the QR code (if needed) and continue development normally.
+
+> If you are not inside a Git repository yet, run `git init` first. The script will display a warning and skip the hook installation otherwise.
+
 
 ### 7. Point the mobile app at your machine
 
