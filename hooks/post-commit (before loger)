@@ -1,0 +1,91 @@
+#!/bin/sh
+#
+# post-commit
+#
+# DevMesh git hook — fires automatically after every local `git commit`.
+#
+# WHAT THIS DOES:
+# Hits the already-running FastAPI webhook listener (started by setup.sh
+# on port 8000) to trigger a review of the commit that was just made,
+# in the background, so `git commit` returns immediately instead of
+# blocking for the LLM latency.
+#
+# WHY curl -> webhook listener, NOT `python run_review.py` directly:
+# --------------------------------------------------------------------
+# BUG FOUND & FIXED: the original version of this hook backgrounded a
+# brand-new `python run_review.py` process on every commit. That process
+# imports ws_broadcaster.py fresh and tries to bind ws://0.0.0.0:8765 —
+# but setup.sh had ALREADY started a long-running webhook_server.py
+# (uvicorn) process that already owns port 8765. The second process's
+# bind failed inside a background thread (OSError: address already in
+# use) and failed SILENTLY — nothing crashed, it just never actually
+# started listening. Because that second process's own
+# `_connected_clients` set was therefore always empty, broadcast_findings()
+# correctly concluded "no client connected" and dropped every message —
+# even though the phone WAS connected, just to the other (webhook_server)
+# process's WebSocket server instead.
+#
+# THE FIX: never start a second run_review.py process at all. Route
+# every commit through the SAME already-running webhook listener, so
+# there's only ever one process, one WebSocket server, one
+# _connected_clients list, ever. This mirrors exactly what a real GitHub
+# PR webhook does — webhook_server.py doesn't currently distinguish "real
+# PR" from "local commit disguised as PR #0", it just re-reviews the
+# local repo's last commit either way (see webhook_server.py docstring).
+#
+# DEPENDENCY: this means the webhook listener must already be running
+# before you commit. `setup.sh` starts it for you. If you skipped
+# setup.sh, start it manually first:
+#   cd backend && uvicorn webhook_server:app --host 0.0.0.0 --port 8000 &
+#
+# SECOND BUG FOUND & FIXED (post-orientation): if the listener wasn't
+# running, the curl call below used to fail silently — nothing printed
+# to the terminal, the only trace was buried in /tmp/devmesh_post_commit.log,
+# which nobody thinks to check mid-demo. A pre-flight health check (below)
+# now catches this BEFORE backgrounding the real request and prints a loud,
+# impossible-to-miss warning right in the commit output instead.
+#
+# INSTALL:
+# This file needs to live at .git/hooks/post-commit inside the repo AND
+# be executable (`chmod +x .git/hooks/post-commit`), or git will silently
+# ignore it. setup.sh handles both of these steps for you.
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+
+if [ -z "$REPO_ROOT" ]; then
+    echo "[post-commit] Could not determine repo root — skipping DevMesh review."
+    exit 0
+fi
+
+# Pre-flight check: is the webhook listener actually reachable? This is a
+# quick synchronous call (2s timeout — negligible added latency on top of
+# a git commit) rather than a fire-and-forget background curl, specifically
+# so we can decide whether to warn BEFORE the terminal returns control to
+# the developer. Without this, a down listener meant the commit silently
+# vanished into a log file nobody was watching.
+if ! curl -s -o /dev/null -m 2 http://localhost:8000/health; then
+    echo
+    echo "  ############################################################"
+    echo "  #  WARNING: DevMesh webhook listener is NOT reachable at"
+    echo "  #  http://localhost:8000 — this commit will NOT be reviewed."
+    echo "  #"
+    echo "  #  Fix: start it with:"
+    echo "  #    cd backend && uvicorn webhook_server:app --host 0.0.0.0 --port 8000 &"
+    echo "  #  or just re-run ./setup.sh from the repo root."
+    echo "  ############################################################"
+    echo
+    exit 0
+fi
+
+echo "[post-commit] DevMesh review triggered via webhook listener (commit $(git -C "$REPO_ROOT" rev-parse --short HEAD))."
+
+# Backgrounded and detached so the terminal returns to the user
+# immediately. -s silences curl's own progress output; errors/response
+# still land in the log below.
+nohup curl -s -X POST http://localhost:8000/webhook \
+    -H "X-GitHub-Event: pull_request" \
+    -H "Content-Type: application/json" \
+    -d '{"action": "opened", "pull_request": {"number": 0}}' \
+    > /tmp/devmesh_post_commit.log 2>&1 &
+
+exit 0

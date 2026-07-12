@@ -1,0 +1,17 @@
+=== Hunk 2/6: samples/buggy_java.java ===
+Prompt length: 1232 chars
+Raw output length: 485 chars
+Latency: 17.73s
+Findings parsed: 3
+
+--- RAW LLM OUTPUT (start) ---
+[CRITICAL] samples/buggy_java.java:1 — Class name "SessionNotFoundException" incorrectly spelled as "SessionNotFoundException" with missing "g" in "Session". Fix: correct class name to "SessionNotFoundException".  
+[WARNING] samples/buggy_java.java:2 — String literal "messsage" has two extra 's' characters. Fix: change to "message".  
+[WARNING] samples/buggy_java.java:3 — Incorrect use of "super" with missing parameter. Fix: pass "message" to super() constructor.  
+NO_ISSUES_FOUND
+--- RAW LLM OUTPUT (end) ---
+
+--- PARSED FINDINGS ---
+  [1] CRITICAL samples/buggy_java.java:1 — Class name "SessionNotFoundException" incorrectly spelled as "SessionNotFoundException" with missing "g" in "Session".
+  [2] WARNING samples/buggy_java.java:2 — String literal "messsage" has two extra 's' characters.
+  [3] WARNING samples/buggy_java.java:3 — Incorrect use of "super" with missing parameter.

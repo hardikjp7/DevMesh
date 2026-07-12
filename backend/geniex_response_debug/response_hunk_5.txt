@@ -1,0 +1,12 @@
+=== Hunk 5/6: samples/style.css ===
+Prompt length: 2481 chars
+Raw output length: 15 chars
+Latency: 11.77s
+Findings parsed: 0
+
+--- RAW LLM OUTPUT (start) ---
+NO_ISSUES_FOUND
+--- RAW LLM OUTPUT (end) ---
+
+--- PARSED FINDINGS ---
+  (none)

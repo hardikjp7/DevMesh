@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="report-header">
+        <h1 class="report-title">AI Code Review Audit</h1>
+        <div class="meta-grid">
+            <div class="meta-badge">Repository: {{ repo_name }}</div>
+            <div class="meta-badge">Pull Request: #{{ pr_number }}</div>
+            <div class="meta-badge">Score: {{ health_score }}/100</div>
+        </div>
+    </div>
+
+    <h2>🚨 Agent Analysis & Findings</h2>
+    
+    {% for finding in findings %}
+    <div class="finding-card" style="border-left-color: {{ finding.color }}">
+        <h3 style="margin-top:0;">[{{ finding.severity }}] {{ finding.title }}</h3>
+        <p><strong>File Path:</strong> <code>{{ finding.file_path }}</code> (Line {{ finding.line }})</p>
+        <p>{{ finding.description }}</p>
+        
+        <h4>Suggested Optimization:</h4>
+        <pre><code>{{ finding.suggested_code }}</code></pre>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

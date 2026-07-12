@@ -1,0 +1,241 @@
+2026-07-12 03:21:38 [setup.sh] === DevMesh Setup started ===
+2026-07-12 03:21:38 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 03:21:39 [setup.sh]       Done.
+2026-07-12 03:21:39 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 03:21:39 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 03:21:39 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 03:21:43 [setup.sh]       Started and confirmed healthy (PID 1829). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 03:21:43 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 03:21:46 [setup.sh]       Started on port 5678 (PID 1834). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 03:21:46 [setup.sh] === Setup complete ===
+2026-07-12 03:22:21 [post-commit] Commit fcbef84 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 03:22:21 [post-commit] Health check OK — triggering review for commit fcbef84 via webhook listener.
+2026-07-12 03:22:21 [post-commit] Review request sent in background (PID 1861). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 03:50:44 [setup.sh] === DevMesh Setup started ===
+2026-07-12 03:50:44 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 03:50:46 [setup.sh]       Done.
+2026-07-12 03:50:46 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 03:50:46 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 03:50:46 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 03:50:51 [setup.sh]       Started and confirmed healthy (PID 447). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 03:50:51 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 03:50:54 [setup.sh]       Started on port 5678 (PID 452). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 03:50:54 [setup.sh] === Setup complete ===
+2026-07-12 03:51:48 [setup.sh] === DevMesh Setup started ===
+2026-07-12 03:51:48 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 03:51:49 [setup.sh]       Done.
+2026-07-12 03:51:49 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 03:51:49 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 03:51:49 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 03:51:49 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 03:51:50 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 03:51:53 [setup.sh]       Started on port 5678 (PID 490). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 03:51:53 [setup.sh] === Setup complete ===
+2026-07-12 03:53:35 [post-commit] Commit 1b77323 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 03:53:35 [post-commit] Health check OK — triggering review for commit 1b77323 via webhook listener.
+2026-07-12 03:53:35 [post-commit] Review request sent in background (PID 517). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 03:56:11 [post-commit] Commit 6f0ffcc — checking webhook listener health at http://localhost:8000/health
+2026-07-12 03:56:12 [post-commit] Health check OK — triggering review for commit 6f0ffcc via webhook listener.
+2026-07-12 03:56:12 [post-commit] Review request sent in background (PID 528). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:01:38 [post-commit] Commit 9b0a763 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:01:39 [post-commit] Health check OK — triggering review for commit 9b0a763 via webhook listener.
+2026-07-12 04:01:39 [post-commit] Review request sent in background (PID 539). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:04:00 [post-commit] Commit 9e5e0c1 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:04:00 [post-commit] Health check OK — triggering review for commit 9e5e0c1 via webhook listener.
+2026-07-12 04:04:00 [post-commit] Review request sent in background (PID 550). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:42:31 [post-commit] Commit addcdd9 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:42:31 [post-commit] Health check OK — triggering review for commit addcdd9 via webhook listener.
+2026-07-12 04:42:31 [post-commit] Review request sent in background (PID 561). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:44:10 [post-commit] Commit 15c3c12 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:44:10 [post-commit] Health check OK — triggering review for commit 15c3c12 via webhook listener.
+2026-07-12 04:44:10 [post-commit] Review request sent in background (PID 572). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:47:56 [setup.sh] === DevMesh Setup started ===
+2026-07-12 04:47:56 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 04:47:58 [setup.sh]       Done.
+2026-07-12 04:47:58 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 04:47:58 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 04:47:58 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 04:48:03 [setup.sh]       Started and confirmed healthy (PID 517). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 04:48:03 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 04:48:06 [setup.sh]       Started on port 5678 (PID 522). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 04:48:06 [setup.sh] === Setup complete ===
+2026-07-12 04:50:35 [post-commit] Commit 32f66f3 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:50:35 [post-commit] Health check OK — triggering review for commit 32f66f3 via webhook listener.
+2026-07-12 04:50:35 [post-commit] Review request sent in background (PID 549). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:52:21 [post-commit] Commit abe4138 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:52:21 [post-commit] Health check OK — triggering review for commit abe4138 via webhook listener.
+2026-07-12 04:52:21 [post-commit] Review request sent in background (PID 560). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 04:54:02 [post-commit] Commit 7efe50a — checking webhook listener health at http://localhost:8000/health
+2026-07-12 04:54:03 [post-commit] Health check OK — triggering review for commit 7efe50a via webhook listener.
+2026-07-12 04:54:03 [post-commit] Review request sent in background (PID 571). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 05:23:44 [setup.sh] === DevMesh Setup started ===
+2026-07-12 05:23:44 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 05:23:45 [setup.sh]       Done.
+2026-07-12 05:23:45 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 05:23:45 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 05:23:45 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 05:23:45 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 05:23:45 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 05:23:48 [setup.sh]       Started on port 5678 (PID 593). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 05:23:48 [setup.sh] === Setup complete ===
+2026-07-12 05:24:27 [post-commit] Commit 6b3f0ff — checking webhook listener health at http://localhost:8000/health
+2026-07-12 05:24:27 [post-commit] Health check OK — triggering review for commit 6b3f0ff via webhook listener.
+2026-07-12 05:24:27 [post-commit] Review request sent in background (PID 620). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 05:29:01 [post-commit] Commit 742174e — checking webhook listener health at http://localhost:8000/health
+2026-07-12 05:29:01 [post-commit] Health check OK — triggering review for commit 742174e via webhook listener.
+2026-07-12 05:29:01 [post-commit] Review request sent in background (PID 631). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 05:37:07 [post-commit] Commit 312d33f — checking webhook listener health at http://localhost:8000/health
+2026-07-12 05:37:07 [post-commit] Health check OK — triggering review for commit 312d33f via webhook listener.
+2026-07-12 05:37:07 [post-commit] Review request sent in background (PID 642). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 05:44:23 [setup.sh] === DevMesh Setup started ===
+2026-07-12 05:44:23 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 05:44:24 [setup.sh]       Done.
+2026-07-12 05:44:24 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 05:44:25 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 05:44:25 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 05:44:25 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 05:44:25 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 05:44:28 [setup.sh]       Started on port 5678 (PID 664). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 05:44:28 [setup.sh] === Setup complete ===
+2026-07-12 05:45:35 [setup.sh] === DevMesh Setup started ===
+2026-07-12 05:45:35 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 05:45:36 [setup.sh]       Done.
+2026-07-12 05:45:36 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 05:45:36 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 05:45:36 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 05:45:39 [setup.sh]       Started and confirmed healthy (PID 1954). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 05:45:39 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 05:45:42 [setup.sh]       Started on port 5678 (PID 1959). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 05:45:42 [setup.sh] === Setup complete ===
+2026-07-12 05:45:49 [post-commit] Commit d634fff — checking webhook listener health at http://localhost:8000/health
+2026-07-12 05:45:50 [post-commit] Health check OK — triggering review for commit d634fff via webhook listener.
+2026-07-12 05:45:50 [post-commit] Review request sent in background (PID 1986). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 05:54:00 [post-commit] Commit b5e8cea — checking webhook listener health at http://localhost:8000/health
+2026-07-12 05:54:00 [post-commit] Health check OK — triggering review for commit b5e8cea via webhook listener.
+2026-07-12 05:54:00 [post-commit] Review request sent in background (PID 1997). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 06:41:06 [setup.sh] === DevMesh Setup started ===
+2026-07-12 06:41:06 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 06:41:08 [setup.sh]       Done.
+2026-07-12 06:41:08 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 06:41:08 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 06:41:08 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 06:41:13 [setup.sh]       WARNING: started (PID 407) but health check did not respond within 1s — check /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log for a startup error.
+2026-07-12 06:41:13 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 06:41:17 [setup.sh]       Started on port 5678 (PID 412). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 06:41:17 [setup.sh] === Setup complete ===
+2026-07-12 06:44:49 [post-commit] Commit e5aaf3c — checking webhook listener health at http://localhost:8000/health
+2026-07-12 06:44:49 [post-commit] Health check OK — triggering review for commit e5aaf3c via webhook listener.
+2026-07-12 06:44:49 [post-commit] Review request sent in background (PID 439). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 06:49:00 [post-commit] Commit d185c23 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 06:49:00 [post-commit] Health check OK — triggering review for commit d185c23 via webhook listener.
+2026-07-12 06:49:00 [post-commit] Review request sent in background (PID 450). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 07:35:56 [setup.sh] === DevMesh Setup started ===
+2026-07-12 07:35:56 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 07:35:57 [setup.sh]       Done.
+2026-07-12 07:35:57 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 07:35:57 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 07:35:57 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 07:36:02 [setup.sh]       Started and confirmed healthy (PID 1598). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 07:36:02 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 07:36:05 [setup.sh]       Started on port 5678 (PID 1603). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 07:36:05 [setup.sh] === Setup complete ===
+2026-07-12 07:36:29 [post-commit] Commit 106376e — checking webhook listener health at http://localhost:8000/health
+2026-07-12 07:36:29 [post-commit] Health check OK — triggering review for commit 106376e via webhook listener.
+2026-07-12 07:36:29 [post-commit] Review request sent in background (PID 1630). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 07:43:43 [post-commit] Commit 889b0c9 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 07:43:43 [post-commit] Health check OK — triggering review for commit 889b0c9 via webhook listener.
+2026-07-12 07:43:43 [post-commit] Review request sent in background (PID 1641). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 07:45:34 [post-commit] Commit 0aa8892 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 07:45:34 [post-commit] Health check OK — triggering review for commit 0aa8892 via webhook listener.
+2026-07-12 07:45:34 [post-commit] Review request sent in background (PID 1652). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 07:52:21 [post-commit] Commit 08f1d7b — checking webhook listener health at http://localhost:8000/health
+2026-07-12 07:52:21 [post-commit] Health check OK — triggering review for commit 08f1d7b via webhook listener.
+2026-07-12 07:52:21 [post-commit] Review request sent in background (PID 1663). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 07:53:44 [post-commit] Commit 579f2c4 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 07:53:44 [post-commit] Health check OK — triggering review for commit 579f2c4 via webhook listener.
+2026-07-12 07:53:45 [post-commit] Review request sent in background (PID 1674). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 07:56:16 [post-commit] Commit 3a9f17f — checking webhook listener health at http://localhost:8000/health
+2026-07-12 07:56:16 [post-commit] Health check OK — triggering review for commit 3a9f17f via webhook listener.
+2026-07-12 07:56:16 [post-commit] Review request sent in background (PID 1685). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 08:43:05 [setup.sh] === DevMesh Setup started ===
+2026-07-12 08:43:05 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 08:43:06 [setup.sh]       Done.
+2026-07-12 08:43:06 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 08:43:06 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 08:43:06 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 08:43:09 [setup.sh]       Started and confirmed healthy (PID 1169). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 08:43:09 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 08:43:12 [setup.sh]       Started on port 5678 (PID 1174). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 08:43:12 [setup.sh] === Setup complete ===
+2026-07-12 08:45:25 [post-commit] Commit ab1f282 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 08:45:25 [post-commit] Health check OK — triggering review for commit ab1f282 via webhook listener.
+2026-07-12 08:45:26 [post-commit] Review request sent in background (PID 1201). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 08:54:56 [post-commit] Commit 15706b2 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 08:54:57 [post-commit] Health check OK — triggering review for commit 15706b2 via webhook listener.
+2026-07-12 08:54:57 [post-commit] Review request sent in background (PID 1212). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 08:55:42 [setup.sh] === DevMesh Setup started ===
+2026-07-12 08:55:42 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 08:55:43 [setup.sh]       Done.
+2026-07-12 08:55:43 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 08:55:43 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 08:55:43 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 08:55:43 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 08:55:43 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 08:55:46 [setup.sh]       Started on port 5678 (PID 1256). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 08:55:46 [setup.sh] === Setup complete ===
+2026-07-12 08:56:36 [setup.sh] === DevMesh Setup started ===
+2026-07-12 08:56:36 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 08:56:37 [setup.sh]       Done.
+2026-07-12 08:56:37 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 08:56:38 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 08:56:38 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 08:56:38 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 08:56:38 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 08:56:41 [setup.sh]       Started on port 5678 (PID 1294). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 08:56:41 [setup.sh] === Setup complete ===
+2026-07-12 08:57:58 [setup.sh] === DevMesh Setup started ===
+2026-07-12 08:57:58 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 08:57:59 [setup.sh]       Done.
+2026-07-12 08:57:59 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 08:57:59 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 08:57:59 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 08:58:03 [setup.sh]       Started and confirmed healthy (PID 1330). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 08:58:03 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 08:58:06 [setup.sh]       Started on port 5678 (PID 1335). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 08:58:06 [setup.sh] === Setup complete ===
+2026-07-12 08:58:57 [setup.sh] === DevMesh Setup started ===
+2026-07-12 08:58:57 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 08:58:58 [setup.sh]       Done.
+2026-07-12 08:58:58 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 08:58:59 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 08:58:59 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 08:58:59 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 08:58:59 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 08:59:02 [setup.sh]       Started on port 5678 (PID 1373). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 08:59:02 [setup.sh] === Setup complete ===
+2026-07-12 09:01:03 [setup.sh] === DevMesh Setup started ===
+2026-07-12 09:01:03 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 09:01:04 [setup.sh]       Done.
+2026-07-12 09:01:04 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 09:01:04 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 09:01:04 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 09:01:07 [setup.sh]       Started and confirmed healthy (PID 1409). Logs: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_webhook.log
+2026-07-12 09:01:07 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 09:01:11 [setup.sh]       Started on port 5678 (PID 1414). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 09:01:11 [setup.sh] === Setup complete ===
+2026-07-12 09:03:06 [setup.sh] === DevMesh Setup started ===
+2026-07-12 09:03:06 [setup.sh] [1/4] Installing Python dependencies from backend/requirements.txt...
+2026-07-12 09:03:07 [setup.sh]       Done.
+2026-07-12 09:03:07 [setup.sh] [2/4] Installing post-commit git hook...
+2026-07-12 09:03:07 [setup.sh]       Installed to .git/hooks/post-commit (and made executable).
+2026-07-12 09:03:07 [setup.sh] [3/4] Starting FastAPI webhook listener on port 8000...
+2026-07-12 09:03:07 [setup.sh]       Something is already listening on port 8000 — leaving it running.
+2026-07-12 09:03:07 [setup.sh] [4/4] Starting Expo mobile dev server...
+2026-07-12 09:03:11 [setup.sh]       Started on port 5678 (PID 1452). QR code/dev server URL: /c/Users/qcwor/OneDrive/Desktop/devmesh/logs/devmesh_expo.log
+2026-07-12 09:03:11 [setup.sh] === Setup complete ===
+2026-07-12 09:03:25 [post-commit] Commit 9089a39 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 09:03:25 [post-commit] Health check OK — triggering review for commit 9089a39 via webhook listener.
+2026-07-12 09:03:25 [post-commit] Review request sent in background (PID 1479). Response will land in /tmp/devmesh_post_commit.log
+2026-07-12 09:07:36 [post-commit] Commit 12909b2 — checking webhook listener health at http://localhost:8000/health
+2026-07-12 09:07:36 [post-commit] Health check OK — triggering review for commit 12909b2 via webhook listener.
+2026-07-12 09:07:36 [post-commit] Review request sent in background (PID 1490). Response will land in /tmp/devmesh_post_commit.log

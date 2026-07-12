@@ -1,0 +1,12 @@
+=== Hunk 3/6: samples/buggy_models.py ===
+Prompt length: 1967 chars
+Raw output length: 193 chars
+Latency: 13.78s
+Findings parsed: 1
+
+--- RAW LLM OUTPUT (start) ---
+[WARNING] samples/buggy_models.py:25 — N+1 query pattern detected in loop; multiple database calls for each order. Fix: fetch all customer data in a single query using customer IDs from orders.
+--- RAW LLM OUTPUT (end) ---
+
+--- PARSED FINDINGS ---
+  [1] WARNING samples/buggy_models.py:25 — N+1 query pattern detected in loop; multiple database calls for each order.

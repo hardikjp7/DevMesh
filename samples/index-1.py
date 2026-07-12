@@ -1,0 +1,122 @@
+from fpdf import FPDF
+from fpdf.enums import XPos, YPos
+
+# 1. Structured data from your AI agent (Clean text format to prevent unicode errors)
+ai_review_data = {
+    "repo_name": "secure-payment-gateway",
+    "pr_number": 104,
+    "health_score": 82,
+    "findings": [
+        {
+            "severity": "CRITICAL",
+            "title": "SQL Injection Vulnerability",
+            "file_path": "auth/login.py",
+            "line": 42,
+            "color": (239, 68, 68),  # RGB Red
+            "description": "The custom login query string combines raw parameters without serialization. An attacker can hijack database assertions.",
+            "suggested_code": "cursor.execute(\"SELECT * FROM users WHERE user = %s\", (username,))"
+        },
+        {
+            "severity": "WARNING",
+            "title": "Unoptimized O(N^2) Iteration Loop",
+            "file_path": "utils/helpers.py",
+            "line": 118,
+            "color": (245, 158, 11),  # RGB Orange
+            "description": "Nested item lookup causes execution lag across large arrays. Convert list searches to set hashing.",
+            "suggested_code": "seen_lookup = set(registered_ids)\nif item_id in seen_lookup:\n    process_item()"
+        }
+    ]
+}
+
+# 2. Define custom PDF builder subclassing FPDF for headers/footers
+class AIReportPDF(FPDF):
+    def footer(self):
+        self.set_y(-15)
+        self.set_font("helvetica", "I", 8)
+        self.set_text_color(128, 128, 128)
+        self.cell(0, 10, f"Page {self.page_no()} of {{nb}}", align="R")
+
+# 3. Initialize PDF document
+pdf = AIReportPDF(orientation="P", unit="mm", format="A4")
+pdf.set_auto_page_break(auto=True, margin=20)
+pdf.alias_nb_pages()
+pdf.add_page()
+
+# --- HEADER SECTION ---
+pdf.set_font("helvetica", "B", 24)
+pdf.set_text_color(26, 32, 44)
+pdf.cell(0, 12, "AI Code Review Audit", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+
+# Accent primary line under header
+pdf.set_draw_color(79, 70, 229)  # Indigo
+pdf.set_line_width(1)
+pdf.line(pdf.get_x(), pdf.get_y() + 2, pdf.get_x() + 180, pdf.get_y() + 2)
+pdf.ln(8)
+
+# --- METADATA BADGES ---
+pdf.set_font("helvetica", "B", 10)
+pdf.set_text_color(74, 85, 104)
+pdf.set_fill_color(237, 242, 247)
+
+# Print horizontal inline badges using explicit formatting layout configurations
+pdf.cell(60, 8, f" Repo: {ai_review_data['repo_name']}", border=0, fill=True, new_x=XPos.RIGHT, new_y=YPos.TOP)
+pdf.cell(5, 8, "", border=0, new_x=XPos.RIGHT, new_y=YPos.TOP) # FIX: Fixed deprecation ln=0 parameter warning
+pdf.cell(45, 8, f" PR Number: #{ai_review_data['pr_number']}", border=0, fill=True, new_x=XPos.RIGHT, new_y=YPos.TOP)
+pdf.cell(5, 8, "", border=0, new_x=XPos.RIGHT, new_y=YPos.TOP) # FIX: Fixed deprecation ln=0 parameter warning
+pdf.cell(45, 8, f" Score: {ai_review_data['health_score']}/100", border=0, fill=True, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+pdf.ln(10)
+
+# --- SECTION TITLE ---
+pdf.set_font("helvetica", "B", 14)
+pdf.set_text_color(26, 32, 44)
+# FIX: Removed the emoji "🚨" syntax to prevent encoding errors on core system Helvetica fonts
+pdf.cell(0, 10, "Agent Analysis & Findings", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+pdf.ln(2)
+
+# --- FINDINGS CARDS LOOP ---
+for finding in ai_review_data["findings"]:
+    start_x = pdf.get_x()
+    start_y = pdf.get_y()
+    
+    # 1. Left colored accent line indicating severity
+    pdf.set_draw_color(*finding["color"])
+    pdf.set_line_width(1.5)
+    pdf.line(start_x, start_y, start_x, start_y + 55)
+    
+    # Indent slightly inside the accent border card
+    pdf.set_x(start_x + 4)
+    
+    # Title
+    pdf.set_font("helvetica", "B", 12)
+    pdf.set_text_color(*finding["color"])
+    pdf.cell(0, 6, f"[{finding['severity']}] {finding['title']}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    
+    # File details
+    pdf.set_x(start_x + 4)
+    pdf.set_font("helvetica", "B", 9)
+    pdf.set_text_color(100, 110, 120)
+    pdf.cell(0, 5, f"File Path: {finding['file_path']} (Line {finding['line']})", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.ln(1)
+    
+    # Description (multi_cell automatically wraps long paragraphs safely)
+    pdf.set_x(start_x + 4)
+    pdf.set_font("helvetica", "", 10)
+    pdf.set_text_color(45, 55, 72)
+    pdf.multi_cell(0, 5, finding["description"], new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    pdf.ln(2)
+    
+    # Suggested code wrapper box (Dark IDE style)
+    pdf.set_x(start_x + 4)
+    pdf.set_font("courier", "B", 9)
+    pdf.set_text_color(205, 214, 244) # Light text
+    pdf.set_fill_color(30, 30, 46)    # Dark background
+    
+    pdf.multi_cell(0, 5, finding["suggested_code"], border=0, fill=True, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+    
+    # Reset tracking spacing for the next card loop
+    pdf.set_x(start_x)
+    pdf.ln(8)
+
+# 4. Save file
+pdf.output("ai_code_review_fpdf2.pdf")
+print("Successfully generated: ai_code_review_fpdf2.pdf")

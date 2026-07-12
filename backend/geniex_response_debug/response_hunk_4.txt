@@ -1,0 +1,15 @@
+=== Hunk 4/6: samples/callback.js ===
+Prompt length: 1233 chars
+Raw output length: 408 chars
+Latency: 16.04s
+Findings parsed: 2
+
+--- RAW LLM OUTPUT (start) ---
+[WARNING] samples/callback.js:1 — Function name "greet" uses a non-standard capitalization. Fix: rename to "greet" with consistent capitalization.  
+[WARNING] samples/callback.js:2 — String concatenation used in console.log without security considerations. Fix: avoid dynamic string construction in log statements.  
+\ No newline at end of file — File ends without newline. Fix: add a newline at end of file.
+--- RAW LLM OUTPUT (end) ---
+
+--- PARSED FINDINGS ---
+  [1] WARNING samples/callback.js:1 — Function name "greet" uses a non-standard capitalization.
+  [2] WARNING samples/callback.js:2 — String concatenation used in console.log without security considerations.

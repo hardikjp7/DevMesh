@@ -1,0 +1,22 @@
+DevMesh Review Report — July 12, 2026 09:08
+Commit: 12909b2 — "css file changes as per discussed with the client"
+Author: Hardik Parmar <hardikjparmar7@gmail.com>
+Committed: 2026-07-12T09:07:35+05:30
+
+5 approved finding(s), 1 developer-flagged false positive(s)
+
+--- samples/index-1.py ---
+  🟠 [MAJOR] line 42: SQL injection vulnerability in query string without parameterization.
+      Fix: use parameterized queries with bound values.
+  🟡 [MINOR] line 44: Hardcoded RGB values used in multiple locations.
+      Fix: use constants or define color tuples once.
+  🟡 [MINOR] line 118: Unoptimized O(N^2) loop in code suggestion.
+      Fix: replace with set lookup for faster iteration.
+  🟢 [SUGGESTION] line 40: Repeated "ln(0)" parameter in cell calls.
+      Fix: use consistent new_y parameter for alignment.
+  🟡 [MINOR] line 104: Hardcoded "helvetica" font used across multiple sections.
+      Fix: use a more generic or system-native font.
+      Developer comment (flagged as false positive): Recheck
+      LLM reiteration [AI maintains this finding]: The hardcoded "helvetica" font is used consistently across the document, and while some fonts are system-native, "helvetica" is not universally available on all systems. Using a more generic system-native font would ensure compatibility and consistency across platforms.
+  🟠 [MAJOR] line 63: No error handling in PDF generation.
+      Fix: add try/except around output and file operations.

@@ -1,0 +1,66 @@
+/* Document Setup & Layout */
+@page {
+    size: A4;
+    margin: 20mm 15mm 20mm 15mm;
+    @bottom-right {
+        content: "Page " counter(page) " of " counter(pages);
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 9pt;
+        color: #888888;
+    }
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #2D3748;
+    line-height: 1.6;
+}
+
+/* Header & Metadata Cards */
+.report-header {
+    border-bottom: 3px solid #4F46E5;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.report-title {
+    font-size: 26pt;
+    color: #1A202C;
+    margin: 0;
+}
+
+.meta-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.meta-badge {
+    background: #EDF2F7;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+/* AI Finding Cards */
+.finding-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-left: 5px solid #EF4444; /* Red border for high priority */
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    page-break-inside: avoid; /* Prevents card from splitting across pages */
+}
+
+/* Code Syntax Formatting */
+pre {
+    background: #1E1E2E;
+    color: #CDD6F4;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10pt;
+    overflow: hidden;
+}

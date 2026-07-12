@@ -1,0 +1,18 @@
+=== Hunk 6/6: samples/ws_broadcaster - Copy.py	 ===
+Prompt length: 10683 chars
+Raw output length: 1119 chars
+Latency: 34.43s
+Findings parsed: 0
+
+--- RAW LLM OUTPUT (start) ---
+[WARNING] samples/ws_broadcaster - Copy.py:98 — Global variable _loop is modified without synchronization. Fix: use _loop.acquire() and _loop.release() in critical sections.  
+[WARNING] samples/ws_broadcaster - Copy.py:113 — _server_thread_launched is modified without proper locking. Fix: add _server_thread_lock.acquire() before modification and release after.  
+[WARNING] samples/ws_broadcaster - Copy.py:133 — asyncio.run_coroutine_threadsafe called without a valid event loop. Fix: ensure _loop is properly initialized before use.  
+[WARNING] samples/ws_broadcaster - Copy.py:145 — _connected_clients accessed without atomicity. Fix: use threading.Lock to protect access.  
+[WARNING] samples/ws_broadcaster - Copy.py:159 — list(_connected_clients) passed to asyncio.gather without a lock. Fix: acquire lock before list creation.  
+[SUGGESTION] samples/ws_broadcaster - Copy.py:163 — _send_to_all uses asyncio.gather with return_exceptions. Fix: add a check for exceptions after send.  
+[WARNING] samples/ws_broadcaster - Copy.py:174 — untrusted input in json.loads. Fix: validate and sanitize input before parsing.
+--- RAW LLM OUTPUT (end) ---
+
+--- PARSED FINDINGS ---
+  (none)

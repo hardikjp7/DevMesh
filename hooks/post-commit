@@ -1,0 +1,86 @@
+#!/bin/sh
+#
+# post-commit
+#
+# DevMesh git hook — fires automatically after every local `git commit`.
+#
+# UPDATED (Section 20 — logging): every checkpoint now also gets a
+# timestamped line in logs/devmesh_hooks.log (in addition to whatever
+# already printed to the terminal), so the full pre-flight-check /
+# trigger / curl-result sequence is reviewable after the fact — not just
+# whatever scrolled past in the terminal at commit time.
+#
+# WHAT THIS DOES:
+# Hits the already-running FastAPI webhook listener (started by setup.sh
+# on port 8000) to trigger a review of the commit that was just made,
+# in the background, so `git commit` returns immediately instead of
+# blocking for the LLM latency.
+#
+# WHY curl -> webhook listener, NOT `python run_review.py` directly:
+# See ws_broadcaster.py's port-collision fix (Section 20) — running a
+# second run_review.py process here would silently corrupt review_session
+# state via the exact "two independent processes, one stale" bug that fix
+# addresses. Routing every commit through the SAME already-running webhook
+# listener keeps there being exactly one process, one WebSocket server,
+# one review_session, ever.
+#
+# DEPENDENCY: this means the webhook listener must already be running
+# before you commit. `setup.sh` starts it for you. If you skipped
+# setup.sh, start it manually first:
+#   cd backend && uvicorn webhook_server:app --host 0.0.0.0 --port 8000 &
+#
+# INSTALL:
+# This file needs to live at .git/hooks/post-commit inside the repo AND
+# be executable (`chmod +x .git/hooks/post-commit`), or git will silently
+# ignore it. setup.sh handles both of these steps for you.
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+LOG_DIR="${REPO_ROOT:-.}/logs"
+mkdir -p "$LOG_DIR" 2>/dev/null
+LOG_FILE="$LOG_DIR/devmesh_hooks.log"
+
+# Timestamped logging helper — writes to both the terminal (so the
+# developer sees it live) and the persistent log file (so it's reviewable
+# after the fact, same reasoning as devlog.py on the Python side: a
+# background/short-lived process's terminal output is easy to miss).
+log_line() {
+    ts="$(date '+%Y-%m-%d %H:%M:%S')"
+    echo "$1"
+    echo "$ts [post-commit] $1" >> "$LOG_FILE" 2>/dev/null
+}
+
+if [ -z "$REPO_ROOT" ]; then
+    log_line "Could not determine repo root — skipping DevMesh review."
+    exit 0
+fi
+
+COMMIT_HASH="$(git -C "$REPO_ROOT" rev-parse --short HEAD 2>/dev/null)"
+log_line "Commit $COMMIT_HASH — checking webhook listener health at http://localhost:8000/health"
+
+if ! curl -s -o /dev/null -m 2 http://localhost:8000/health; then
+    log_line "Health check FAILED — listener not reachable."
+    echo
+    echo "  ############################################################"
+    echo "  #  WARNING: DevMesh webhook listener is NOT reachable at"
+    echo "  #  http://localhost:8000 — this commit will NOT be reviewed."
+    echo "  #"
+    echo "  #  Fix: start it with:"
+    echo "  #    cd backend && uvicorn webhook_server:app --host 0.0.0.0 --port 8000 &"
+    echo "  #  or just re-run ./setup.sh from the repo root."
+    echo "  ############################################################"
+    echo
+    exit 0
+fi
+
+log_line "Health check OK — triggering review for commit $COMMIT_HASH via webhook listener."
+
+nohup curl -s -X POST http://localhost:8000/webhook \
+    -H "X-GitHub-Event: pull_request" \
+    -H "Content-Type: application/json" \
+    -d '{"action": "opened", "pull_request": {"number": 0}}' \
+    -w "\n[post-commit] HTTP status: %{http_code}\n" \
+    > /tmp/devmesh_post_commit.log 2>&1 &
+
+log_line "Review request sent in background (PID $!). Response will land in /tmp/devmesh_post_commit.log"
+
+exit 0

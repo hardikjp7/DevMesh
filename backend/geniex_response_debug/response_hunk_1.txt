@@ -1,0 +1,22 @@
+=== Hunk 1/1: samples/index-1.py ===
+Prompt length: 6586 chars
+Raw output length: 810 chars
+Latency: 28.81s
+Findings parsed: 6
+
+--- RAW LLM OUTPUT (start) ---
+[MAJOR] samples/index-1.py:42 — SQL injection vulnerability in query string without parameterization. Fix: use parameterized queries with bound values.  
+[MINOR] samples/index-1.py:44 — Hardcoded RGB values used in multiple locations. Fix: use constants or define color tuples once.  
+[MINOR] samples/index-1.py:118 — Unoptimized O(N^2) loop in code suggestion. Fix: replace with set lookup for faster iteration.  
+[SUGGESTION] samples/index-1.py:40 — Repeated "ln(0)" parameter in cell calls. Fix: use consistent new_y parameter for alignment.  
+[MINOR] samples/index-1.py:104 — Hardcoded "helvetica" font used across multiple sections. Fix: use a more generic or system-native font.  
+[MAJOR] samples/index-1.py:63 — No error handling in PDF generation. Fix: add try/except around output and file operations.
+--- RAW LLM OUTPUT (end) ---
+
+--- PARSED FINDINGS ---
+  [1] MAJOR samples/index-1.py:42 — SQL injection vulnerability in query string without parameterization.
+  [2] MINOR samples/index-1.py:44 — Hardcoded RGB values used in multiple locations.
+  [3] MINOR samples/index-1.py:118 — Unoptimized O(N^2) loop in code suggestion.
+  [4] SUGGESTION samples/index-1.py:40 — Repeated "ln(0)" parameter in cell calls.
+  [5] MINOR samples/index-1.py:104 — Hardcoded "helvetica" font used across multiple sections.
+  [6] MAJOR samples/index-1.py:63 — No error handling in PDF generation.

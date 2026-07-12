@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "DevMesh",
+    "slug": "devmesh-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#0F172A"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0F172A"
+      },
+      "package": "com.anonymous.devmeshmobile",
+      "versionCode": 1,
+      "runtimeVersion": "1.0.0"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1010214f-6c3d-4e0d-adf5-d4dd06b1819e"
+      }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/1010214f-6c3d-4e0d-adf5-d4dd06b1819e"
+    }
+  }
+}

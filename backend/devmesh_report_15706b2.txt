@@ -1,0 +1,18 @@
+DevMesh Review Report — July 12, 2026 08:55
+Commit: 15706b2 — "css file changes as per discussed with the client"
+Author: Hardik Parmar <hardikjparmar7@gmail.com>
+Committed: 2026-07-12T08:54:56+05:30
+
+5 approved finding(s), 0 developer-flagged false positive(s)
+
+--- samples/buggy_auth.py ---
+  🔴 [CRITICAL] line 14: Unvalidated user input used in SQL query with string concatenation.
+      Fix: sanitize and validate user input before constructing SQL queries.
+  🔴 [CRITICAL] line 22: User-provided data used directly in SQL query without escaping.
+      Fix: use parameterized queries with bound values.
+  🟠 [MAJOR] line 22: SQL injection vulnerability via string formatting in login function.
+      Fix: replace string formatting with parameterized queries.
+  🟡 [MINOR] line 14: Query construction uses vulnerable concatenation without input validation.
+      Fix: validate and sanitize user input before concatenation.
+  🟡 [MINOR] line 22: Username and password are directly interpolated into SQL query.
+      Fix: use parameterized queries to prevent injection.
