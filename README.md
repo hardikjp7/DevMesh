@@ -437,7 +437,8 @@ Offline report summarizing approved findings and AI re-evaluation results.
 
 Watch the complete workflow here:
 
-https://youtu.be/your-demo-video
+[Watch live demo](https://drive.google.com/file/d/1WKTO-hYO7K9tGjn8HjS0FEZF99qaIVsA/view?usp=drive_link)
+
 ---
 
 ## Verifying the setup (tests)
