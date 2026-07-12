@@ -1,10 +1,6 @@
 /**
  * DevMesh Mobile — Triage App
  *
- * Wire protocol matches backend/CHANGELOG.md (July 9, 2026 session), PLUS
- * one new pair of messages added in this pass — NOT YET in CHANGELOG.md,
- * needs to be communicated to Hardik since his round-trip verdict step is
- * what will answer these:
  *
  *   Backend -> mobile (every broadcast):
  *   {
@@ -35,8 +31,7 @@
  *    convergence), `generate_report` auto-fires. If there are no
  *    outstanding FPs, it skips straight to `generate_report`.
  * 2. A "Cancel" affordance appears during the verifying state so a stuck
- *    wait (e.g. backend not wired up yet during dev) doesn't permanently
- *    lock the button — cancelling only resets the report-request state,
+ *    wait doesn't permanently lock the button — cancelling only resets the report-request state,
  *    decisions are untouched.
  * 3. On `report_ready`, a native Alert confirms the report location. On
  *    the developer tapping OK, the entire per-review-run state (findings,
@@ -99,7 +94,7 @@ const FALLBACK_FINDINGS = [
 
 // Unpacks the backend's { commit, file, findings: [...] } wire shape into a
 // flat array the UI renders one card per finding for. Each finding keeps
-// the server-assigned `id` — this is the identity used everywhere below,
+// the commit id — this is the identity used everywhere below,
 // never a locally-derived index.
 function flattenPayload(payload) {
   if (!payload || !Array.isArray(payload.findings)) return [];
