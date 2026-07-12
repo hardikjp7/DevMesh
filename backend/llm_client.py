@@ -8,7 +8,7 @@ Thin wrapper around the local LLM backend.
 
 
 
-Section 19.3 decision: review_hunk()'s signature stays identical regardless
+review_hunk()'s signature stays identical regardless
 
 of backend — only the internals swap. Backend is selected via DEVMESH_BACKEND:
 
@@ -28,9 +28,7 @@ of backend — only the internals swap. Backend is selected via DEVMESH_BACKEND:
 
 
 
-Section 19.4 UPDATE (model finalized, confirmed via AI Hub benchmark data
-
-on real Snapdragon X Elite CRD hardware — see project knowledge Section 19.4):
+model finalized, confirmed via AI Hub benchmark data on real Snapdragon X Elite CRD hardware:
 
   PRIMARY:  Qwen3-4B-Instruct-2507 — runs on GenieX/QAIRT (native NPU
 
@@ -58,7 +56,7 @@ never needs to know which backend produced a result.
 
 
 
-Section 19.8 UPDATE (QNN prompt-file handling):
+(QNN prompt-file handling):
 
   Switched the QNN path from a per-call tempfile.NamedTemporaryFile to a
 

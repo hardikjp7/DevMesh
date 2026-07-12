@@ -15,7 +15,7 @@ import re
 from dataclasses import dataclass
 from typing import List
 
-# --- Section 19.4/19.5/Section 20 resolution --------------------------------
+
 # PRIMARY MODEL (confirmed via direct AI Hub benchmark check on real
 # Snapdragon X Elite CRD hardware — see Section 19.4 update): Qwen3-4B-
 # Instruct-2507, running via GenieX/QAIRT (native NPU runtime), w4a16,

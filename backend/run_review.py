@@ -3,7 +3,7 @@ run_review.py
 
 Orchestrator — the "does the pipeline work at all" script.
 
-UPDATED for the false-positive reiteration flow (Section 20): findings are
+false-positive reiteration flow : findings are
 now registered into review_session (which assigns each one a stable id and
 retains its source diff, server-side only) BEFORE being broadcast, so
 mobile-side decisions and the eventual reiteration pass have something to
@@ -13,7 +13,7 @@ once every finding has been marked approved/false_positive (see
 ws_broadcaster.py + report_trigger.py). This script's job ends once findings
 are broadcast; it just keeps the process (and WS server) alive after that.
 
-UPDATED for structured logging (Section 20 — devlog.py): every phase is now
+UPDATED for structured logging : every phase is now
 logged (not just printed) and persisted to logs/devmesh.log, with major
 blocking steps (git subprocess calls, per-hunk LLM review) wrapped in
 stage() so a hang anywhere shows up as a "STAGE START" with no matching
