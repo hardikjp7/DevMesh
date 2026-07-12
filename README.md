@@ -91,7 +91,7 @@ from your phone - with zero code ever transmitted anywhere.
 
 ![DevMesh architecture diagram](docs/architecture.png)
 
-```
+<!--
 SNAPDRAGON AI PC
   git commit  /  GitHub PR
        │
@@ -115,7 +115,7 @@ SNAPDRAGON AI PC
   Mobile App (React Native)                          │
   approve / flag false-positive+reason /       pdf_report.py (fpdf2) - PDF + plain-text
   generate report                              debug copy, written locally
-```
+-->
 
 1. **Trigger.** A `git commit` fires the `post-commit` hook, or a GitHub PR
    webhook lands on the FastAPI listener. Both routes funnel into the
@@ -558,4 +558,4 @@ Remaining known, deliberate limitations:
 
 ## License
 
-MIT - see [LICENSE](LICENSE).
+ Apache-2.0 license - see [LICENSE](LICENSE).
