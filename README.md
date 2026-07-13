@@ -129,7 +129,7 @@ SNAPDRAGON AI PC
    Ollama is the CPU fallback for development machines without the
    Snapdragon backend.
 4. **Parsing.** The model's raw text is parsed into structured
-   `CRITICAL` / `WARNING` / `SUGGESTION` findings.
+   `CRITICAL` / `MAJOR` / `MINOR `/ `SUGGESTION` findings.
 5. **Broadcast.** Findings stream to the mobile app over a WebSocket, grouped
    by commit.
 6. **Triage.** On the phone, each finding is either **Approved** or marked
@@ -416,7 +416,7 @@ taps **Generate Report**) a PDF written to `backend/devmesh_report_<short_commit
   <img src="docs/mobile.png" width="320">
 </p>
 
-The developer reviews findings, approves valid issues, or marks false positives.
+The developer reviews findings, approves valid issues, or marks false positives and then click on generate report to generate PDF report.
 
 ---
 
@@ -496,16 +496,7 @@ Writes timestamped CSV + JSON to `backend/benchmark_results/`.
 
 ---
 
-## Known issues
-
-Two parsing bugs were found during on-hardware verification (inspecting
-real `geniex` output logs in `backend/geniex_response_debug/`) - the model
-occasionally returning non-standard severity words (`MAJOR`/`MINOR` instead
-of `CRITICAL`/`WARNING`/`SUGGESTION`), and filenames containing spaces
-breaking the finding parser's regex. **Both have since been fixed** in
-`response_parser.py`.
-
-Remaining known, deliberate limitations:
+## Remaining known, deliberate limitations:
 
 - No message backlog/replay - a mobile client that connects *after* a
   review already ran will miss those findings. Connect the mobile client
