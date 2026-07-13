@@ -330,7 +330,7 @@ Edit `mobile/App.js` and set `SERVER_IP` to your laptop's LAN IP (phone and
 laptop must be on the same Wi-Fi):
 
 ```js
-const SERVER_IP = "192.168.x.x"; // your laptop's LAN IP, not the phone's
+const SERVER_IP = "x.x.x.x"; // your laptop's LAN IP, not the phone's
 ```
 
 Find your IP with `ipconfig` (Windows) or `ifconfig` / `ip addr`
