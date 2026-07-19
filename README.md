@@ -15,6 +15,8 @@ offline code reviews.**
 Built for the **Snapdragon® Multiverse Hackathon** (Bangalore) - Top 50
 Teams (India level), Phase 2 build.
 
+**After the build phase ended, our team was selected among the top 8 finalists out of all 50 teams and presented live on stage in the final battle - finishing 2nd overall, just 0.5 points behind 1st place.**
+
 ---
 
 ## In 30 seconds
