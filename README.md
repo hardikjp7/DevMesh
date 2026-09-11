@@ -85,9 +85,9 @@ from your phone - with zero code ever transmitted anywhere.
 
 | Name | Role | Email |
 |---|---|---|
-| Hardik Parmar | Team Lead - LLM integration, prompt engineering, response parsing, WebSocket server, backend orchestration, structured logging | hj.parmar1@tcs.com, hi@hardikjp7.com |
-| Vatsal Bhavesh | React Native mobile app, WebSocket client, fpdf2 PDF report generator, false-positive UX | vb.mandaliya@tcs.com |
-| Dhruv | Git hook, GitHub webhook listener, FastAPI server | ds.bailkur@tcs.com |
+| Hardik Parmar | Team Lead - LLM integration, prompt engineering, response parsing, WebSocket server, backend orchestration, structured logging | hi@hardikjp7.com |
+| Vatsal Bhavesh | React Native mobile app, WebSocket client, fpdf2 PDF report generator, false-positive UX | vmc9152@gmail.com |
+| Dhruv | Git hook, GitHub webhook listener, FastAPI server | nickleo799@gmail.com |
 
 ## How it works
 
